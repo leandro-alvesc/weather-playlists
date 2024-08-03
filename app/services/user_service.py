@@ -33,4 +33,4 @@ class UserService:
             email=user_input.email,
             hashed_password=AuthUtils.hash_password(user_input.password))
         created_user.save()
-        return created_user.to_schema()
+        return created_user

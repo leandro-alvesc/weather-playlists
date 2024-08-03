@@ -3,7 +3,7 @@ from pydantic import BaseModel, EmailStr, Field
 
 class UserOutput(BaseModel):
     name: str
-    email: EmailStr | None = Field(default=None)
+    email: EmailStr = Field()
 
 
 class UserInput(UserOutput):
