@@ -1,7 +1,11 @@
+from fastapi import HTTPException
+from typing import List
+
 from app.integrations.open_weather_api import OpenWeatherAPI
 from app.integrations.spotify_api import SpotifyAPI
 from app.models.favorite import Favorite
-from app.schemas.favorite import FavoriteInput, FavoriteOutput
+from app.models.user import User
+from app.schemas.favorite import FavoriteInput
 from app.schemas.location import Location
 from app.schemas.playlists import Playlists, Playlist
 
@@ -41,9 +45,30 @@ class PlaylistService:
                 ) for p in playlists]
         )
 
-    @classmethod
-    def create_favorite(cls, favorite_input: FavoriteInput) -> FavoriteOutput:
-        created_favorite = Favorite(weather=favorite_input.weather,
-                                    playlist=favorite_input.playlist)
+    @staticmethod
+    def list_favorites(user_email: str) -> List[Favorite]:
+        user = User.get_user_by_email(user_email)
+        return Favorite.list_favorites(user.id)
+
+    @staticmethod
+    def create_favorite(user_email: str, favorite_input: FavoriteInput
+                        ) -> Favorite:
+        user = User.get_user_by_email(user_email)
+        created_favorite = Favorite(
+            user_id=user.id, weather=favorite_input.weather,
+            playlist=favorite_input.playlist)
         created_favorite.save()
-        return created_favorite.to_schema()
+        return created_favorite
+
+    @staticmethod
+    def delete_favorite(user_email: str, favorite_id) -> None:
+        user = User.get_user_by_email(user_email)
+        favorite = Favorite.get_by_id(favorite_id)
+
+        if not favorite:
+            raise HTTPException(status_code=404, detail='Favorite not found.')
+
+        if favorite.user_id != user.id:
+            raise HTTPException(status_code=403, detail='Forbidden.')
+
+        favorite.delete()
