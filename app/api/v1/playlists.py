@@ -31,7 +31,7 @@ def create_favorite(favorite: FavoriteInput, email: Annotated[str, Depends(
 
 
 @router.delete('/favorites/{favorite_id}')
-def create_favorite(favorite_id: str, email: Annotated[str, Depends(
+def delete_favorite(favorite_id: str, email: Annotated[str, Depends(
                     AuthUtils.get_user_email_from_token)]):
     playlist_service = PlaylistService()
     return playlist_service.delete_favorite(email, favorite_id)
