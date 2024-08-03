@@ -1,20 +1,16 @@
 from fastapi import FastAPI, status
-from functools import lru_cache
 
 from .api.v1 import playlists
-from .config import Settings
+from .logger import get_logger
 from .models.health_check import HealthCheck
 from .models.info import Info
 
+logger = get_logger()
+logger.info('Starting Weather Playlists API...')
 
-app = FastAPI()
-
-@lru_cache
-def get_settings():
-    return Settings()
+app = FastAPI(title='api')
 
 app.include_router(playlists.router)
-
 
 @app.get('/health',
          tags=['healthcheck'],
