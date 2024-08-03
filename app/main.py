@@ -2,8 +2,8 @@ from fastapi import FastAPI, status
 
 from .api.v1 import playlists
 from .logger import get_logger
-from .models.health_check import HealthCheck
-from .models.info import Info
+from .schemas.health_check import HealthCheck
+from .schemas.info import Info
 
 logger = get_logger()
 logger.info('Starting Weather Playlists API...')
