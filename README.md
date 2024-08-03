@@ -13,6 +13,8 @@ Projeto para a criação de uma API onde o usuário poderá solicitar recomenda�
 
 Projeto desenvolvido para uma avaliação técnica, ao longo da documentação trarei os detalhes técnicos sobre a aplicação.
 
+Confira a documentação da [API](API.md).
+
 ---
 
 ## 💻 Tecnologias
