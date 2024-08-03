@@ -2,7 +2,7 @@ from fastapi import HTTPException
 from firedantic import ModelNotFoundError
 
 from app.logger import get_logger
-from app.schemas.user import UserInput, UserOutput
+from app.schemas.user import UserInput
 from app.schemas.token import Token
 from app.models.user import User
 from app.utils.auth_utils import AuthUtils
@@ -12,12 +12,12 @@ LOGGER = get_logger()
 
 class UserService:
     @classmethod
-    def get_user_by_email(cls, email: str) -> UserOutput:
+    def get_user_by_email(cls, email: str) -> User:
         user = cls.__get_user_by_email(email)
 
         if not user:
             raise HTTPException(status_code=404, detail='User not found.')
-        return user.to_schema()
+        return user
 
     @classmethod
     def auth_user(cls, email, password) -> Token:
@@ -29,7 +29,7 @@ class UserService:
         return Token(access_token=AuthUtils.create_access_token(user.email))
 
     @classmethod
-    def create_user(cls, user_input: UserInput) -> UserOutput:
+    def create_user(cls, user_input: UserInput) -> User:
         if cls.__user_already_exists(user_input.email):
             raise HTTPException(status_code=400, detail='User already exists.')
 
