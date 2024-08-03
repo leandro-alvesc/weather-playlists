@@ -1,6 +1,6 @@
 <div align= "center">
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34)![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34)![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)
 
 </div>
 
@@ -29,6 +29,13 @@ Projeto desenvolvido para uma avaliação técnica, ao longo da documentação t
 - [Docker](https://www.docker.com/)
     - Apesar do Cloud Run permitir a execução direta da aplicação através do comando informado, decidi por incluir um Dockerfile, dessa forma facilita o desacoplamento do GCP, podendo ser facilmente adaptado para outros servidores.
 
+## 📎 APIs externas
+
+- [x] [Spotify](https://developer.spotify.com/)
+    - API utilizada para buscar as playlists baseadas na categoria informada.
+- [x] [OpenWeather](https://openweathermap.org/)
+    - API utilizada para obter as coordenadas da localização informada e obter as condições de clima.
+
 ## ⚙️ Funcionalidades
 
 - [x] Usuários:
@@ -51,10 +58,10 @@ Projeto desenvolvido para uma avaliação técnica, ao longo da documentação t
 
 ### 💡 Pré-requisitos
 
-
 - [x] python3.12 (garantir os pacotes python-dev e python-venv)
 - [x] pip
 - [x] git
+- [x] gcloud (com conta configurada no GCP)
 
 #### 💾 Rodando local
 
@@ -72,6 +79,12 @@ $ source ./venv/bin/activate
 
 # Instale as dependências
 $ pip install -r requirements.txt
+
+# Configure sua conta do Google Cloud, garantindo acesso ao SDK
+$ gcloud init
+
+# Garanta a autenticação na aplicação escolhida do gcloud
+$ gcloud auth application-default login
 
 # Execute a aplicação em modo de desenvolvimento
 $ fastapi dev app/main.py
