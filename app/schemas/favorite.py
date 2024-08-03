@@ -10,7 +10,6 @@ class FavoriteInput(BaseModel):
 
 
 class FavoriteOutput(BaseModel):
-    _id: str
-    user_id: str
+    id: str
     weather: Weather
     playlist: Playlist
