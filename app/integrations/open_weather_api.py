@@ -39,6 +39,9 @@ class OpenWeatherAPI:
         location = data[0] if len(data) else None
 
         return location and Coordinates(
+            name=location.get('name'),
+            state=location.get('state'),
+            country=location.get('country'),
             latitude='{:0.2f}'.format(location.get('lat')),
             longitude='{:0.2f}'.format(location.get('lon'))
         )

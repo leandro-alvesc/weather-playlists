@@ -1,6 +1,8 @@
 from fastapi import FastAPI, status
+from firedantic import configure
 
 from .api.v1 import playlists
+from .firestore import get_firestore_client
 from .logger import get_logger
 from .schemas.health_check import HealthCheck
 from .schemas.info import Info
@@ -9,6 +11,9 @@ logger = get_logger()
 logger.info('Starting Weather Playlists API...')
 
 app = FastAPI(title='api')
+
+db_client = get_firestore_client()
+configure(db_client)
 
 app.include_router(playlists.router)
 
