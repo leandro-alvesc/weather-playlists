@@ -11,6 +11,9 @@ class Settings(BaseSettings):
     spotify_client_secret: str = ''
     spotify_account_base_url: str = ''
     spotify_api_base_url: str = ''
+    jwt_secret_key: str = 'secret-key'
+    jwt_algorithm: str = 'HS256'
+    jwt_access_token_expire_minutes: int = 30
 
     model_config = SettingsConfigDict(env_file=".env")
 

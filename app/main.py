@@ -1,7 +1,7 @@
 from fastapi import FastAPI, status
 from firedantic import configure
 
-from .api.v1 import playlists
+from .api.v1 import playlists, users, auth
 from .firestore import get_firestore_client
 from .logger import get_logger
 from .schemas.health_check import HealthCheck
@@ -15,6 +15,8 @@ app = FastAPI(title='api')
 db_client = get_firestore_client()
 configure(db_client)
 
+app.include_router(auth.router)
+app.include_router(users.router)
 app.include_router(playlists.router)
 
 @app.get('/health',

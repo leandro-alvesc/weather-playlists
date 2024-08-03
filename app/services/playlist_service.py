@@ -1,7 +1,7 @@
 from app.integrations.open_weather_api import OpenWeatherAPI
 from app.integrations.spotify_api import SpotifyAPI
 from app.models.favorite import Favorite
-from app.schemas.favorite import FavoriteInput
+from app.schemas.favorite import FavoriteInput, FavoriteOutput
 from app.schemas.location import Location
 from app.schemas.playlists import Playlists, Playlist
 
@@ -42,8 +42,8 @@ class PlaylistService:
         )
 
     @classmethod
-    def create_favorite(cls, favorite_input: FavoriteInput) -> Favorite:
+    def create_favorite(cls, favorite_input: FavoriteInput) -> FavoriteOutput:
         created_favorite = Favorite(weather=favorite_input.weather,
                                     playlist=favorite_input.playlist)
         created_favorite.save()
-        return created_favorite
+        return created_favorite.to_schema()
