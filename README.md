@@ -100,3 +100,16 @@ $ fastapi dev app/main.py
 $ localhost:8000/docs
 
 ```
+
+## 🪛 Testando
+
+```bash
+
+# Inicializar emulador do Firestore
+$ . start_firestore_emulator.sh
+
+# Execute o pytest
+$ pytest
+
+```
+
