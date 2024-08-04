@@ -2,10 +2,8 @@ FROM python:3.12
 WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 
-RUN apt-get update && sudo apt-get upgrade
-
-RUN apt-get install python-dev && pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
  
 COPY ./app /code/app
  
-CMD ["fastapi", "run", "app/main.py", "--port", "80"]
+CMD ["fastapi", "run", "app/main.py", "--port", "8000"]
