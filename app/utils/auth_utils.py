@@ -1,8 +1,8 @@
 import bcrypt
 import jwt
 from datetime import datetime, timedelta, timezone
-from fastapi import HTTPException
-from fastapi.security import OAuth2PasswordBearer
+from fastapi import HTTPException, Header
+from typing import Annotated
 
 from jwt.exceptions import InvalidTokenError
 
@@ -11,7 +11,6 @@ from app.logger import get_logger
 
 SETTINGS = get_settings()
 LOGGER = get_logger()
-OAUTH2_SCHEME = OAuth2PasswordBearer(tokenUrl='token')
 
 
 class AuthUtils:
@@ -38,7 +37,7 @@ class AuthUtils:
                           algorithm=SETTINGS.jwt_algorithm)
 
     @staticmethod
-    def get_user_email_from_token(token: str) -> str:
+    def get_user_email_from_token(token: Annotated[str, Header()]) -> str:
         email = None
         try:
             payload = jwt.decode(token, SETTINGS.jwt_secret_key,
