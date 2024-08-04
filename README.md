@@ -8,28 +8,28 @@
 
 ## 🎺 Sobre o projeto
 
-Projeto para a criação de uma API onde o usuário poderá solicitar recomendações de playlists baseadas na temperatura da cidade informada.
-Vi nessa proposta uma boa oportunidade para criar esse projeto utilizando o FastAPI, que é amplamente recomendado pela comunidade de desenvolvedores Python, e aprofundar meus conhecimentos sobre o framework.
+Projeto para a criação de uma __API__ onde o usuário poderá solicitar recomendações de playlists baseadas na temperatura da cidade informada.
+Vi nessa proposta uma boa oportunidade para criar esse projeto utilizando o __FastAPI__, que é amplamente recomendado pela comunidade de desenvolvedores Python, e aprofundar meus conhecimentos sobre o framework.
 
 Projeto desenvolvido para uma avaliação técnica, ao longo da documentação trarei os detalhes sobre a aplicação.
 
-Confira a [documentação da API](API.md).
+__Confira a [documentação da API](API.md).__
 
 ---
 
-## 💻 Tecnologias
+## 💻 Tecnologias e Arquitetura
 
 - [FastAPI](https://fastapi.tiangolo.com/)
     - O projeto foi concebido utilizando o framework FastAPI, devido sua alta performance, alta produtividade, forte tipagem e facilidade de implementação em ambientes Serverless.
-    - O padrão de design e a estrutura de arquivos escolhido para construir esse serviço se inspira em três padrões: o padrão MVC, o padrão sugerido pela [documentação oficial](https://fastapi.tiangolo.com/tutorial/bigger-applications/) e a [sugestão de jankatins](https://github.com/zhanymkanov/fastapi-best-practices?tab=readme-ov-file#project-structure) inspirado no [Dispatch](https://github.com/Netflix/dispatch) da Netflix. Dessa forma, a aplicação pode ser facilmente interpretada, atualizada e receber novas features.
+    - O __padrão de design__ e a estrutura de arquivos escolhido para construir esse serviço se inspira em três padrões: o padrão MVC, o padrão sugerido pela [documentação oficial](https://fastapi.tiangolo.com/tutorial/bigger-applications/) e a [sugestão de jankatins](https://github.com/zhanymkanov/fastapi-best-practices?tab=readme-ov-file#project-structure) inspirado no [Dispatch](https://github.com/Netflix/dispatch) da Netflix. Dessa forma, a aplicação pode ser facilmente interpretada, atualizada e receber novas features, garantindo a __escalabilidade__ do serviço.
 - [Google Cloud Run](https://cloud.google.com/run/)
-    - A escolha de hospedagem no Google Cloud Run se dá pela possibilidade e facilidade de executar um ambiente serverless altamente escalável, garantindo a flexibilidade dos containers e a redução de custos.
+    - A escolha de hospedagem no Google Cloud Run se dá pela possibilidade e facilidade de executar um ambiente serverless altamente escalável, garantindo a __flexibilidade__ e __elasticidade__ dos containers e a redução de custos.
     - Possui cota gratuíta, se tornando uma boa opção para low-budget.
 - [Google Cloud Firestore](https://cloud.google.com/firestore)
-    - Utilizando o Google Cloud Firestore para armazenamento de dados, podemos facilmente instanciar uma coleção e começar a trabalhar nela de imediato, sendo uma boa opção para não precisar gastar tempo configurando um banco de dados.
+    - Utilizando o Google Cloud Firestore para armazenamento de dados, podemos facilmente instanciar uma coleção e começar a trabalhar nela de imediato, sendo uma boa opção para garantir a __agilidade__ e não precisar gastar tempo configurando um banco de dados.
     - Garante a redução de custos, possuindo uma cota gratuíta.
 - [Docker](https://www.docker.com/)
-    - Apesar do Cloud Run permitir a execução direta da aplicação através do comando informado, decidi por incluir um Dockerfile, dessa forma facilita o desacoplamento do GCP, podendo ser facilmente adaptado para outros servidores.
+    - Apesar do Cloud Run permitir a execução direta da aplicação através do comando informado, decidi por incluir um Dockerfile, dessa forma facilita o __desacoplamento__ do GCP, podendo ser facilmente adaptado para outros servidores.
 
 ## 📎 APIs externas
 
@@ -40,12 +40,12 @@ Confira a [documentação da API](API.md).
 
 ## ⚙️ Funcionalidades
 
-- [x] Usuários:
+- [x] __Usuários__:
   - [x] Criação de usuário
   - [x] Login (formulário com email e senha)
     - Autenticação através de [JWT](https://pyjwt.readthedocs.io/en/stable/)
 
-- [x] Playlists:
+- [x] __Playlists__:
   - [x] Buscar playlists baseadas nas condições atuais de temperatura
     - Temperatura abaixo de 10°C: playlist de músicas clássicas
     - Temperatura entre 10°C e 25°C: playlist de músicas de rock
@@ -53,6 +53,10 @@ Confira a [documentação da API](API.md).
   - [x] Consultar playlists salvas na lista de favoritos
   - [x] Salvar playlist na lista de favoritos
   - [x] Deletar playlist da lista de favoritos
+
+## 📦 CI/CD (Deployment)
+
+_RESERVADA PARA DOCUMENTAÇÃO DO FLUXO DE CI/CD_
 
 ---
 
