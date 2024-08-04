@@ -1,5 +1,4 @@
 from fastapi import HTTPException
-from firedantic import ModelNotFoundError
 
 from app.logger import get_logger
 from app.schemas.user import UserInput
