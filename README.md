@@ -9,7 +9,7 @@
 ## 🎺 Sobre o projeto
 
 Projeto para a criação de uma API onde o usuário poderá solicitar recomendações de playlists baseadas na temperatura da cidade informada.
-
+Vi nessa proposta uma boa oportunidade para criar esse projeto utilizando o FastAPI, que é amplamente recomendado pela comunidade de desenvolvedores Python, e aprofundar meus conhecimentos sobre o framework.
 
 Projeto desenvolvido para uma avaliação técnica, ao longo da documentação trarei os detalhes técnicos sobre a aplicação.
 
