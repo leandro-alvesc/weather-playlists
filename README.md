@@ -56,7 +56,15 @@ __Confira a [documentação da API](API.md).__
 
 ## 📦 CI/CD (Deployment)
 
-_RESERVADA PARA DOCUMENTAÇÃO DO FLUXO DE CI/CD_
+Para o fluxo de __CI/CD__ do projeto, utilizei algumas ferramentas:
+- GitHub
+    - Utilizando o __gitflow__ para gerenciar as ramificações e os padrões __semânticos__ de commits.
+- Dockerfile
+    - Para definir os comandos para a criação da imagem.
+- Google Cloud Build
+    - Para criação de __gatilhos__, nesse caso há um deploy sempre que houver um push na branch _main_.
+- Google Cloud Run
+    - Onde o _Cloud Build_ subirá o container criado.
 
 ---
 
