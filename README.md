@@ -54,6 +54,22 @@ __Confira a [documentação da API](API.md).__
   - [x] Salvar playlist na lista de favoritos
   - [x] Deletar playlist da lista de favoritos
 
+## 📟 Utilização
+
+Para utilizar a API o usuário deverá seguir o seguinte fluxo:
+- Criação de usuário:
+    - Passando como parâmetros: nome, email e senha.
+- Autenticação de usuário:
+    - Através de email e senha, esse passo será necessário para informar o token nos próximos passos.
+- Consulta de playlists:
+    - Consultar as playlists recomendadas a partir da localização informada.
+- Salvar favorito:
+    - Passando como corpo da requisição a playlist selecionada, juntamente com a informação sobre o clima, retornada do passo anterior.
+- Listar favoritos:
+    - O usuário obtém as playlists que salvou como favorito.
+- Deletar favorito:
+    - O usuário pode deletar um favorito passando o ID do mesmo.
+
 ## 📦 CI/CD (Deployment)
 
 Para o fluxo de __CI/CD__ do projeto, utilizei algumas ferramentas:
