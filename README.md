@@ -30,6 +30,8 @@ __Confira a [documentação da API](API.md).__
     - Garante a redução de custos, possuindo uma cota gratuíta.
 - [Docker](https://www.docker.com/)
     - Apesar do Cloud Run permitir a execução direta da aplicação através do comando informado, decidi por incluir um Dockerfile, dessa forma facilita o __desacoplamento__ do GCP, podendo ser facilmente adaptado para outros servidores.
+- API RESTful
+    - Padrão para comunicação da API, devida a sua flexibilidade e facilidade de implementação.
 
 ## 📎 APIs externas
 
