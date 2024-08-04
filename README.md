@@ -11,22 +11,22 @@
 Projeto para a criação de uma API onde o usuário poderá solicitar recomendações de playlists baseadas na temperatura da cidade informada.
 Vi nessa proposta uma boa oportunidade para criar esse projeto utilizando o FastAPI, que é amplamente recomendado pela comunidade de desenvolvedores Python, e aprofundar meus conhecimentos sobre o framework.
 
-Projeto desenvolvido para uma avaliação técnica, ao longo da documentação trarei os detalhes técnicos sobre a aplicação.
+Projeto desenvolvido para uma avaliação técnica, ao longo da documentação trarei os detalhes sobre a aplicação.
 
-Confira a documentação da [API](API.md).
+Confira a [documentação da API](API.md).
 
 ---
 
 ## 💻 Tecnologias
 
 - [FastAPI](https://fastapi.tiangolo.com/)
-    - O projeto foi concebido sob o framework FastAPI, devido sua alta performance, alta produtividade, forte tipagem e facilidade de implementação em ambientes Serverless.
-    - O design escolhido para construir esse serviço se baseaiam na arquitetura MVC, adaptado do padrão sugerido pela [documentação oficial](https://fastapi.tiangolo.com/tutorial/bigger-applications/) e da [sugestão de jankatins](https://github.com/zhanymkanov/fastapi-best-practices?tab=readme-ov-file#project-structure) inspirado no [Dispatch - Netflix](https://github.com/Netflix/dispatch).
+    - O projeto foi concebido utilizando o framework FastAPI, devido sua alta performance, alta produtividade, forte tipagem e facilidade de implementação em ambientes Serverless.
+    - O padrão de design e a estrutura de arquivos escolhido para construir esse serviço se inspira em três padrões: o padrão MVC, o padrão sugerido pela [documentação oficial](https://fastapi.tiangolo.com/tutorial/bigger-applications/) e a [sugestão de jankatins](https://github.com/zhanymkanov/fastapi-best-practices?tab=readme-ov-file#project-structure) inspirado no [Dispatch](https://github.com/Netflix/dispatch) da Netflix. Dessa forma, a aplicação pode ser facilmente interpretada, atualizada e receber novas features.
 - [Google Cloud Run](https://cloud.google.com/run/)
-    - A escolha de hospedagem no Google Cloud Run se dá pela possibilidade de executar um ambiente serverless altamente escalável, garantindo a flexibilidade dos containers e a redução de custos.
-    - Possui cota gratuíta.
+    - A escolha de hospedagem no Google Cloud Run se dá pela possibilidade e facilidade de executar um ambiente serverless altamente escalável, garantindo a flexibilidade dos containers e a redução de custos.
+    - Possui cota gratuíta, se tornando uma boa opção para low-budget.
 - [Google Cloud Firestore](https://cloud.google.com/firestore)
-    - Utilizando o Google Cloud Firestore para armazenamento de dados, podemos facilmente instanciar uma coleção e começar a trabalhar nela de imediato.
+    - Utilizando o Google Cloud Firestore para armazenamento de dados, podemos facilmente instanciar uma coleção e começar a trabalhar nela de imediato, sendo uma boa opção para não precisar gastar tempo configurando um banco de dados.
     - Garante a redução de custos, possuindo uma cota gratuíta.
 - [Docker](https://www.docker.com/)
     - Apesar do Cloud Run permitir a execução direta da aplicação através do comando informado, decidi por incluir um Dockerfile, dessa forma facilita o desacoplamento do GCP, podendo ser facilmente adaptado para outros servidores.
