@@ -7,7 +7,8 @@ from app.schemas.playlists import Playlists
 from app.services.playlist_service import PlaylistService
 from app.utils.auth_utils import AuthUtils
 
-router = APIRouter(prefix='/playlists', tags=['playlists'])
+router = APIRouter(prefix='/playlists', tags=['playlists'],
+                   dependencies=[Depends(AuthUtils.get_user_email_from_token)])
 
 
 @router.get('/', response_model=Playlists)
@@ -18,7 +19,7 @@ def get_playlists(location: Location = Depends()):
 
 @router.get('/favorites', response_model=List[FavoriteOutput])
 def list_favorites(email: Annotated[str, Depends(
-                  AuthUtils.get_user_email_from_token)]):
+                   AuthUtils.get_user_email_from_token)]):
     playlist_service = PlaylistService()
     return [f.to_schema() for f in playlist_service.list_favorites(email)]
 

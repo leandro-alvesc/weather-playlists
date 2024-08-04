@@ -2,6 +2,7 @@
 # Documentação da API
 
 Documento gerado a partir da documentação no Swagger, disponível na rota /docs na API.
+
 Métodos e Funcionalidades da API listadas abaixo:
 
 ---
