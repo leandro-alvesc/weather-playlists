@@ -10,7 +10,7 @@ client = TestClient(app)
 settings = get_settings()
 
 USER_INFO = dict(name='User Test', email='test@user.com', password='passtest')
-LOCATION_INFO = dict(city_name='São Paulo', state_code='SP', country_code='BR')
+LOCATION_INFO = dict(city_name='São Paulo', country_code='BR')
 
 
 def test_info():
