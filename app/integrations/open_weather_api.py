@@ -33,8 +33,8 @@ class OpenWeatherAPI:
 
     @classmethod
     def get_coordinates(cls, location: Location) -> Coordinates:
-        query = f'{location.city_name},{location.state_code},' \
-                f'{location.country_code}'
+        query = f'{location.city_name},,{location.country_code}'
+
         data = cls.make_request(cls.GEOCODING_PATH, dict(q=query))
         location = data[0] if len(data) else None
 
