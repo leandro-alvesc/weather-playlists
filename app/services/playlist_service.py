@@ -17,7 +17,17 @@ class PlaylistService:
     @classmethod
     def get_playlist_by_location(cls, location: Location) -> Playlists:
         coordinates = cls.open_weather_api.get_coordinates(location)
+
+        if coordinates is None:
+            raise HTTPException(
+                status_code=404, detail='Coordinates not found.')
+
         weather = cls.open_weather_api.get_weather(coordinates)
+
+        if weather is None:
+            raise HTTPException(
+                status_code=404, detail='Weather not found.')
+
         cls.spotify_api.authenticate()
 
         category_id = 'classical'
